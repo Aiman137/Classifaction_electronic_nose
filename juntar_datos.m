@@ -96,7 +96,7 @@ y = [1 0 1 0 1 0 1];
 figure(4),
 scatter(Z(:,1), Z(:,2), 25, y,'filled');
 
-
+%%
 % Cargamos datos 4
 % Cargamos el archivo csv
 filename4 = 'putty_sensors_data4.csv';
@@ -224,7 +224,7 @@ figure(6),
 %gscatter(Y4(:,1),Y4(:,2),y4)
 scatter(Z4(:,1), Z4(:,2), 25, y4,'filled');
 
-
+%%
 % Cargamos datos 5
 % Cargamos el archivo csv
 filename5 = 'putty_sensors_data5.csv';
@@ -346,6 +346,7 @@ y45 = [1 0 1 0 1 0 1 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0];
 figure(9),
 scatter(Z45(:,1), Z45(:,2), 25, y45,'filled');
 
+%%
 % Cargamos datos del vial 4 y 5
 % Cargamos el archivo csv
 filename6 = 'putty_sensors_data6(VIAL4Y5).csv';
@@ -438,9 +439,8 @@ y6 = [1 0 1 0 1 0 1 0 1 0 1 0 1 0 1];
 [U6, Z6] = pca(data_sensors6, 'NumComponents', 2);
 figure(11),
 scatter(Z6(:,1), Z6(:,2), 25, y6,'filled');
-
+%%
 % Cargamos datos8
-
 % Cargamos el archivo csv
 filename8 = 'putty_sensors_data8(VIAL1Y2).csv';
 data8 = readtable(filename8);
@@ -551,7 +551,7 @@ figure(13),
 scatter(Z8(:,1), Z8(:,2), 25, y8,'filled');
 figure(14),
 scatter(Y8(:,1), Y8(:,2), 25, y8, 'filled');
-
+%%
 % Cargamos datos9
 % Cargamos el archivo csv
 filename9 = 'putty_sensors_data9.csv';
@@ -692,4 +692,128 @@ plot(C(:,1),C(:,3),'kx')
 % %plot(data10)
 % scatter(Z10(1,:), Z10(2,:), 25,'filled');
 
+%%
+% Cargamos los datos 10
+% Cargamos el archivo csv
+filename10 = 'putty_sensors_data10.csv';
+data10 = readtable(filename10);
 
+% Buscamos la filas vacias y las eliminamos
+empty_rows10 = all(ismissing(data10), 2);
+data10(empty_rows10, :) = [];
+
+new_filename10 = 'cleaned_putty_Arduino_Data10.csv';
+writetable(data10, new_filename10);
+M10 = readmatrix('cleaned_putty_Arduino_Data10.csv');
+
+figure(18),
+plot(data10{2:end, 1});
+hold on
+plot(data10{2:end, 2});
+hold on
+plot(data10{2:end, 3});
+
+%Acetona
+xline(11460);
+xline(21460);
+
+xline(21465);
+xline(31465);
+
+xline(31470);
+xline(41470);
+
+xline(41475);
+xline(51475);
+
+xline(51480);
+xline(61480);
+
+xline(61485);
+xline(71485);
+
+%Etanol
+xline(71490);
+xline(81490);
+
+xline(81495);
+xline(91495);
+
+xline(91500);
+xline(101500);
+
+xline(101505);
+xline(111505);
+
+xline(111510);
+xline(121510);
+
+%Acetona
+
+xline(130350);
+xline(140350);
+
+xline(140355);
+xline(150355);
+
+xline(150360);
+xline(160360);
+
+xline(160365);
+xline(170365);
+
+xline(170370);
+xline(180370);
+
+xline(180375);
+xline(190375);
+
+% Etanol
+
+xline(190380);
+xline(200380);
+
+xline(200385);
+xline(210380);
+
+xline(210385);
+xline(220380);
+
+xline(230385);
+xline(240385);
+
+xline(240390);
+xline(250390);
+
+xline(250395);
+xline(260395);
+
+data_sensors10 = [M10(11460:21460,1)' M10(11460:21460,2)' M10(11460:21460,3)'; %%
+    M10(21465:31465,1)' M10(21465:31465,2)' M10(21465:31465,3)'; %%
+    M10(31470:41470,1)' M10(31470:41470,2)' M10(31470:41470,3)'; %%
+    M10(41475:51475,1)' M10(41475:51475,2)' M10(41475:51475,3)'; %%  
+    M10(51480:61480,1)' M10(51480:61480,2)' M10(51480:61480,3)'; %%
+    M10(61485:71485,1)' M10(61485:71485,2)' M10(61485:71485,3)';   
+
+    M10(130350:140350,1)' M10(130350:140350,2)' M10(130350:140350,3)'; 
+    M10(140355:150355,1)' M10(140355:150355,2)' M10(140355:150355,3)';  
+    M10(150360:160360,1)' M10(150360:160360,2)' M10(150360:160360,3)';  
+    M10(160365:170365,1)' M10(160365:170365,2)' M10(160365:170365,3)';
+    M10(170370:180370,1)' M10(170370:180370,2)' M10(170370:180370,3)'; 
+    M10(180375:190375,1)' M10(180375:190375,2)' M10(180375:190375,3)';
+
+    M10(71490:81490,1)' M10(71490:81490,2)' M10(71490:81490,3)';
+    M10(81495:91495,1)' M10(81495:91495,2)' M10(81495:91495,3)'; 
+    M10(91500:101500,1)' M10(91500:101500,2)' M10(91500:101500,3)'; 
+    M10(101505:111505,1)' M10(101505:111505,2)' M10(101505:111505,3)';
+    M10(111510:121510,1)' M10(111510:121510,2)' M10(111510:121510,3)'; 
+    
+    M10(190380:200380,1)' M10(190380:200380,2)' M10(190380:200380,3)';
+    M10(200385:210380,1)' M10(200385:210380,2)' M10(200385:210380,3)'; 
+    M10(210385:220380,1)' M10(210385:220380,2)' M10(210385:220380,3)';
+    M10(230385:240385,1)' M10(230385:240385,2)' M10(230385:240385,3)';
+    M10(240390:250390,1)' M10(240390:250390,2)' M10(240390:250390,3)';
+    M10(250395:260395,1)' M10(250395:260395,2)' M10(250395:260395,3)';
+];
+
+y10 = [1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0];

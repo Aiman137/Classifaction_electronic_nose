@@ -1,0 +1,8 @@
+close all 
+clc
+clear
+
+load spectra.mat	
+
+figure(1),
+plot(octane(:,5))

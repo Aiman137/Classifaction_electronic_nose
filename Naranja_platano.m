@@ -67,6 +67,9 @@ hold on
 plot(data_NP3{2:end, 3});
 
 %%
+close all
+clear
+clc
 % Cargamos los datos 
 % Cargamos el archivo csv
 filename_NP4 = 'putty_sensors_dataPlatanoNaranja3.csv';
@@ -81,11 +84,11 @@ writetable(data_NP4, new_filename_NP4);
 M_NP4 = readmatrix('cleaned_putty_Arduino_NARANJA_PLATANO3.csv');
 
 figure(4),
-plot(data_NP4{2:end, 1});
+plot(data_NP4{9000:end, 1} - 0.34);
 hold on
-plot(data_NP4{2:end, 2});
+plot(data_NP4{9000:end, 2} - 0.09);
 hold on
-plot(data_NP4{2:end, 3});
+plot(data_NP4{9000:end, 3} - 0.250);
 
 xline(14820);
 xline(29720);
@@ -147,3 +150,28 @@ y_PYN = [1 0 1 0 1 0 1 0 1 0 1 0 1];
 [U, Z] = pca(data_sensors_PYN, 'NumComponents', 3);
 figure(5),
 scatter(Z(:,2), Z(:,3), 25, y_PYN,'filled');
+
+%% Datos 4
+close all
+clc
+clear
+% Cargamos los datos 
+% Cargamos el archivo csv
+filename_NP5 = 'putty_sensors_dataPlatanoNaranja4.csv';
+data_NP5 = readtable(filename_NP5);
+
+% Buscamos la filas vacias y las eliminamos
+empty_rows_NP5 = all(ismissing(data_NP5), 2);
+data_NP5(empty_rows_NP5, :) = [];
+
+new_filename_NP5 = 'cleaned_putty_Arduino_NARANJA_PLATANO4.csv';
+writetable(data_NP5, new_filename_NP5);
+M_NP5 = readmatrix('cleaned_putty_Arduino_NARANJA_PLATANO4.csv');
+
+figure(4),
+plot(data_NP5{20000:83000, 1} - 0.28);
+hold on
+plot(data_NP5{20000:83000, 2} - 0.13);
+hold on
+plot(data_NP5{20000:83000, 3} - 0.27);
+

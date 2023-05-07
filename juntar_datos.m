@@ -1135,70 +1135,69 @@ clc
 clear
 % Cargamos los datos 10
 % Cargamos el archivo csv
-filename12 = 'putty_sensors_data12.csv';
-data12 = readtable(filename12);
+%filename12 = 'putty_sensors_data12.csv';
+%data12 = readtable(filename12);
 
 % Buscamos la filas vacias y las eliminamos
-empty_rows12 = all(ismissing(data12), 2);
-data12(empty_rows12, :) = [];
+%empty_rows12 = all(ismissing(data12), 2);
+%data12(empty_rows12, :) = [];
 
-new_filename12 = 'cleaned_putty_Arduino_Data12.csv';
-writetable(data12, new_filename12);
-M12 = readmatrix('cleaned_putty_Arduino_Data12.csv');
+%new_filename12 = 'cleaned_putty_Arduino_Data12.csv';
+%writetable(data12, new_filename12);
+%M12 = readmatrix('cleaned_putty_Arduino_Data12.csv');
 
-figure(24),
-plot(data12{2:end, 1});
-hold on
-plot(data12{2:end, 2});
-hold on
-plot(data12{2:end, 3});
-
-%Acetona
-xline(27830);
-xline(37830);
-
-xline(37835);
-xline(47835);
-
-xline(47840);
-xline(57840);
-
-xline(57845);
-xline(67845);
-
-%Etanol
-xline(67850);
-xline(77850);
-
-xline(77855);
-xline(87855);
-
-xline(87860);
-xline(97860);
-
-xline(97865);
-xline(107865);
-
-xline(107870);
-xline(117870);
+% figure(24),
+% plot(data12{2:end, 1});
+% hold on
+% plot(data12{2:end, 2});
+% hold on
+% plot(data12{2:end, 3});
 
 %Acetona
-xline(126730);
-xline(136730);
+% xline(27830);
+% xline(37830);
+% 
+% xline(37835);
+% xline(47835);
+% 
+% xline(47840);
+% xline(57840);
+% 
+% xline(57845);
+% xline(67845);
+% 
+% %Etanol
+% xline(67850);
+% xline(77850);
+% 
+% xline(77855);
+% xline(87855);
+% 
+% xline(87860);
+% xline(97860);
+% 
+% xline(97865);
+% xline(107865);
+% 
+% xline(107870);
+% xline(117870);
+% 
+% %Acetona
+% xline(126730);
+% xline(136730);
+% 
+% xline(136735);
+% xline(146735);
+% 
+% xline(146740);
+% xline(156740);
+% 
+% xline(156745);
+% xline(166745);
+% 
 
-xline(136735);
-xline(146735);
-
-xline(146740);
-xline(156740);
-
-xline(156745);
-xline(166745);
 
 
-
-l = [];
-l = [l M12(27830:37830,1)' M12(27830:37830,2)' M12(27830:37830,3)';];
 
 
 % Datos 9 10 y 11 juntos
@@ -1211,6 +1210,9 @@ M12 = readmatrix('cleaned_putty_Arduino_Data12.csv'); %Entrenamiento
 M13 = readmatrix('cleaned_putty_Arduino_Data13.csv');
 M14 = readmatrix('cleaned_putty_Arduino_Data14.csv');
 M15 = readmatrix('cleaned_putty_Arduino_Data15.csv');
+
+l = [];
+l = [l M12(27830:37830,1)' M12(27830:37830,2)' M12(27830:37830,3)';];
 
 data_sensors91011 = [M9(21200:31200,1)' M9(21200:31200,2)' M9(21200:31200,3)'; %% 1
     M9(31210:41210,1)' M9(31210:41210,2)' M9(31210:41210,3)'; %% 2

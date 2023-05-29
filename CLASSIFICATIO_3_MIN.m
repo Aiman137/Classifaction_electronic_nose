@@ -3,8 +3,8 @@ clc
 clear
 
 load('decanol.mat');
-load('acetona_etanol.mat');
-load("acetona_etanol_amp_const.mat");
+load('acetona_etanol_2_min.mat');
+load("acetona_etanol_amp_const_min.mat");
 load("decanol_const_amp.mat"); %data without labels
 
 %add labels to decanol data
